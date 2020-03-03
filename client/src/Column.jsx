@@ -18,7 +18,7 @@ class Column extends Component {
         
           {(provided) => (
             <div 
-              innerRef={provided.innerRef} 
+              ref={provided.innerRef} 
               {...provided.droppableProps}
             >
               {this.props.jobs.map((job, index) => (

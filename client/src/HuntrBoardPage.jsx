@@ -8,8 +8,8 @@ class HuntrBoardPage extends Component {
     this.state = {
       colOrder: [2,1],
       columns: {
-        1: {jobOrder: ['b', 'a'], id: 1},
-        2: {jobOrder: ['c'], id: 2}
+        1: {jobOrder: ['b', 'a'], id: '1'},
+        2: {jobOrder: ['c'], id: '2'}
       },
       jobs: {
         a: {name: 'google', id: 'a'},

@@ -13,7 +13,7 @@ class Job extends Component {
           <div
             {...provided.draggableProps}
             {...provided.dragHandleProps}
-            innerRef={provided.innerRef}
+            ref={provided.innerRef}
           >
             {this.props.job.name}
           </div>
