@@ -4,20 +4,24 @@ import styled from 'styled-components';
 import Job from './Job';
 
 const Container = styled.div`
-  display: inline-block;
-  width: 200px;
-  height: 1000px;
-  border: 1px solid red;
+  height: calc(100vh - 125px);
+  width: 305px;
+  background-color:rgb(215, 203, 238); 
+  user-select: none;
+  border: rgb(140, 114, 189) solid 1px;
+  border-top: 0px;
+  color: rgb(85, 3, 85);
+  flex-direction: column;
+  margin: 10px;
 `
 
 class Column extends Component {
   render () {
     return (
-      <Container>
         <Droppable droppableId={this.props.column.id}>
         
           {(provided) => (
-            <div 
+            <Container 
               ref={provided.innerRef} 
               {...provided.droppableProps}
             >
@@ -25,10 +29,9 @@ class Column extends Component {
                 <Job key={job.id} job={job} index={index} />
               ))}
               {provided.placeholder}
-            </div>
+            </Container>
           )}
         </Droppable>
-      </Container>
     )
   }
 }
