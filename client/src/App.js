@@ -1,12 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import HuntrBoardPage from './HuntrBoardPage';
 
 function App() {
   return (
     <div className="App">
-      <HuntrBoardPage />
+      <BrowserRouter>
+        <Route exact path="/login" render={() => <Login/>} />
+        <Route exact path="/board" render={() => <HuntrBoardPage />} />
+        <Route exact path="/job/:id" render={() => <h1>home</h1>} />
+      </BrowserRouter>
+      
     </div>
   );
 }
