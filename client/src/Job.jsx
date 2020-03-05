@@ -9,8 +9,20 @@ const Container = styled.div`
   margin: 0 15px 15px 15px;
   display: flex; 
   color: white;
-  box-shadow: 0px 4px 8px rgba(24,0,69,0.3);
   position: relative;
+  background-color: red;
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    box-shadow: 0 5px 10px 3px rgba(0,0,0,0.3);
+    transition: opacity 0.15s ease-in-out;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
 `
 
 class Job extends Component {
