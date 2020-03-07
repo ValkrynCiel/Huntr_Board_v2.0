@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {Redirect} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 const Form = styled.form`
 
@@ -19,7 +19,7 @@ class LoginForm extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     alert('user is now logged in');
-    this.props.history.push('/board');
+    this.props.history.push(`/${this.state.username}/board`);
   }
   handleChange(evt) {
     this.setState({

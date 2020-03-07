@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Draggable} from 'react-beautiful-dnd';
 import styled from 'styled-components';
+import {Link, withRouter} from 'react-router-dom';
 
-const Container = styled.div`
+const JobLink = styled(Link)`
   width: 275px;
   height: 90px;
   border-radius: 4px;
@@ -11,7 +12,7 @@ const Container = styled.div`
   color: white;
   position: relative;
   background-color: red;
-  &::after {
+    &::after {
     content: '';
     position: absolute;
     width: 100%;
@@ -27,23 +28,29 @@ const Container = styled.div`
 
 class Job extends Component {
   render() {
+    const { location, job: {id, name}, index } = this.props;
     return (
         <Draggable 
-          draggableId={this.props.job.id} 
-          index={this.props.index}
+          draggableId={id} 
+          index={index}
         >
           {provided => (
-            <Container
+            <JobLink to={{
+              pathname: `/job/${id}`,
+              // This is the trick! This link sets
+              // the `background` in location state.
+              state: { background: location }
+            }}
               {...provided.draggableProps}
               {...provided.dragHandleProps}
               ref={provided.innerRef}
             >
-              {this.props.job.name}
-            </Container>
+              {name}
+            </JobLink>
           )}
         </Draggable>
     )
   }
 }
 
-export default Job;
+export default withRouter(Job);

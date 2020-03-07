@@ -19,7 +19,7 @@ class HuntrBoardPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      colOrder: [2,1,3,4,5,6],
+      colOrder: ['2','1','3','4','5','6'],
       columns: {
         1: {jobOrder: ['b', 'a'], name: 'applied'},
         2: {jobOrder: ['c'], name: 'phone screen'},
@@ -112,7 +112,7 @@ class HuntrBoardPage extends Component {
             {this.state.colOrder.map(columnId => {
               const column = this.state.columns[columnId];
               const jobs = column.jobOrder.map(jobId => this.state.jobs[jobId]);
-              return <Column key={columnId} id={columnId}column={column} jobs={jobs}/>;
+              return <Column key={columnId} id={columnId} column={column} jobs={jobs}/>;
             })}
           </DragDropContext>
         </FlexContainer>
