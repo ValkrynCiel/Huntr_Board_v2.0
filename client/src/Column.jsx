@@ -4,38 +4,48 @@ import styled from 'styled-components';
 import Job from './Job';
 
 const Container = styled.div`
-  height: calc(100vh - 125px);
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  border: rgb(140, 114, 189) solid 1px;
+`
+const ColumnHeader = styled.div`
+  width: 305px;
+  height: 100px;
+  background-color:rgb(215, 203, 238); 
+`
+
+const DropArea = styled.div`
+  flex: 1;
   width: 305px;
   background-color:rgb(215, 203, 238); 
   user-select: none;
   overflow-Y: scroll;
-  border: rgb(140, 114, 189) solid 1px;
-  border-top: 0px;
   color: rgb(85, 3, 85);
   flex-direction: column;
-  margin: 10px;
 `
 
 class Column extends Component {
   render () {
     return (
+      <Container>
+        <ColumnHeader>
+          {this.props.column.name}
+        </ColumnHeader>
         <Droppable droppableId={this.props.id}>
-        
           {(provided) => (
-            <Container 
+            <DropArea
               ref={provided.innerRef} 
               {...provided.droppableProps}
             >
-              <>
-              {this.props.column.name}
               {this.props.jobs.map((job, index) => (
                 <Job key={job.id} job={job} index={index} />
               ))}
               {provided.placeholder}
-              </>
-            </Container>
+            </DropArea>
           )}
         </Droppable>
+      </Container>
     )
   }
 }

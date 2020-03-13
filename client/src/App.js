@@ -2,12 +2,12 @@ import React from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 import './App.css';
 import ModalSwitch from './ModalSwitch';
-import HuntrBoardPage from './HuntrBoardPage';
-import LoginForm from './Login';
+import NavBar from './NavBar';
 
 function App() {
   return (
     <div className="App">
+      <NavBar/>
       <BrowserRouter>
         {/* <Route exact path="/login/" render={rtp => <LoginForm {...rtp} />} />
         <Route exact path="/:username/board" render={rtp => <HuntrBoardPage />} />

@@ -12,7 +12,9 @@ const FlexContainer =  styled.div`
   float: left;
   display: flex;
   flex-direction: row;
-  padding: 10px;
+  padding: 0 10px;
+  height: calc(100vh - 100px);
+  margin-top: 100px;
 `
 
 class HuntrBoardPage extends Component {
